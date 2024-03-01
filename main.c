@@ -30,7 +30,7 @@ int main(int argc, char *args[]) {
 
   SDL_UpdateWindowSurface(window);
 
-  SDL_Delay(2000);
+  SDL_Delay(12000);
 
   SDL_DestroyWindow(window);
 
