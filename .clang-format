@@ -1,1 +1,5 @@
 ColumnLimit: 110
+
+IndentWidth: 4
+
+TabWidth: 4
