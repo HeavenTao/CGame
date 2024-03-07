@@ -7,12 +7,13 @@ project(MySDL2Project VERSION 1.0)
 
 # 查找 SDL2 库
 find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
 
 # 包含 SDL2 头文件
-include_directories(${SDL2_INCLUDE_DIRS})
+include_directories(${SDL2_INCLUDE_DIRS} SDL2_image::SDL2_image)
 
 # 添加一个可执行文件
 add_executable(game main.c)
 
 # 链接 SDL2 库
-target_link_libraries(game ${SDL2_LIBRARIES})
+target_link_libraries(game ${SDL2_LIBRARIES} SDL2_image::SDL2_image)

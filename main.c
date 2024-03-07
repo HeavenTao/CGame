@@ -13,9 +13,8 @@
 const int SCREEN_WIDTH = 700;
 const int SCREEN_HEIGHT = 700;
 
-void draw(SDL_Surface *surface, SDL_Window *win) {
+void draw(SDL_Surface *surface, SDL_Window *win, SDL_Surface *img) {
 
-    SDL_Surface *img = IMG_Load("cat.jpg");
     SDL_Rect imgRect = {0, 0, img->w, img->h};
     SDL_Rect desRect = {10, 10, img->w, img->h};
     SDL_UpperBlit(img, &imgRect, surface, &desRect);
@@ -32,8 +31,6 @@ void event_loop(SDL_Surface *surface, SDL_Window *win) {
                 return;
             }
         }
-
-        draw(surface, win);
     }
 }
 
@@ -60,6 +57,14 @@ int main(int argc, char *args[]) {
     ((Uint32 *)surface->pixels)[10] = 0xff000000;
 
     SDL_UpdateWindowSurface(win);
+
+    SDL_Surface *img = IMG_Load("../cat.jpg");
+    if (img == NULL) {
+        SDL_Log("img load error: %s", IMG_GetError());
+        return 3;
+    }
+
+    draw(surface, win, img);
 
     event_loop(surface, win);
 
