@@ -14,7 +14,7 @@ find_package(SDL2_ttf REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS} SDL2_image::SDL2_image SDL2_ttf::SDL2_ttf)
 
 # 添加一个可执行文件
-add_executable(game main.c)
+add_executable(game ./src/main.c)
 
 # 链接 SDL2 库
 target_link_libraries(game ${SDL2_LIBRARIES} SDL2_image::SDL2_image SDL2_ttf::SDL2_ttf)
